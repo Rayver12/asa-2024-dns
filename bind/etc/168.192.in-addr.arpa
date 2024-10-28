@@ -1,0 +1,15 @@
+$TTL 24h
+$ORIGIN 168.192.in-addr.arpa.
+@	IN	SOA	testdns1.asa.br.	adm.asa.br. (
+				1 	;
+				24h	;
+				2h	;
+				1000h	;
+				2d	;
+				)
+
+	IN	NS	testdns1.asa.br.
+
+$ORIGIN 1.168.192.in-addr.arpa.
+23	IN	PTR	rafael.asa.br.
+

@@ -1,0 +1,80 @@
+# comentario para testar
+version: '3'
+services:
+
+  web01:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    image: web01
+    container_name: web01
+    restart: always
+    tty: true
+    networks:
+      - asa-network
+
+  web02:
+    build:
+      context: ./web
+      dockerfile: Dockerfile.web2
+    image: web02
+    container_name: web02
+    restart: always
+    tty: true
+    networks:
+      - asa-network
+      
+  proxy:
+    build:
+      context: ./web
+      dockerfile: Dockerfile.proxy
+    image: proxy
+    container_name: proxy
+    hostname: www.asa.br
+    restart: always
+    tty: true
+    ports:
+      - "80:80"
+    depends_on:
+      - web01
+      - web02
+    networks:
+      - asa-network
+
+  dns:
+    build:
+      context: ./bind
+      dockerfile: Dockerfile
+    image: dns
+    container_name: dns
+    hostname: ns1.asa.br
+    restart: always
+    tty: true
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./bind/etc:/etc/bind
+    networks:
+      - asa-network
+ 
+#  mail:
+#    build:
+#      context: ./email
+#      dockerfile: Dockerfile
+#    image: email
+#    container_name: email
+#    hostname: mail.asa.br
+#    restart: always
+#    tty: true
+#    ports:
+#      - "25:25/tcp"
+#      - "587:587/tcp"
+#    networks:
+#      - asa-network
+
+#Docker Networks
+networks:
+  asa-network:
+    driver: bridge
+
