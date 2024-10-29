@@ -11,5 +11,5 @@ $ORIGIN 168.192.in-addr.arpa.
 	IN	NS	testdns1.asa.br.
 
 $ORIGIN 1.168.192.in-addr.arpa.
-23	IN	PTR	rafael.asa.br.
+105	IN	PTR	rafael.asa.br.
 
