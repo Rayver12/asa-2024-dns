@@ -6,7 +6,7 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "asa.br" { // Change to desired zone
+zone "rafael.asa.br" { // Change to desired zone
         type master;
         file "/etc/bind/db.asa.local"; // Change to zone file path
         allow-transfer { any; };                // Change to Secondary DNS IP

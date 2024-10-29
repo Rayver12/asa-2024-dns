@@ -1,5 +1,5 @@
 $TTL    604800
-@       IN      SOA     asa.br. root.asa.br. (
+@       IN      SOA     rafael.asa.br. root.rafael.asa.br. (
                               1         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
@@ -8,10 +8,10 @@ $TTL    604800
 ;
 
 @	IN	A	192.168.1.105	
-@       IN      NS      rafael.asa.br.
-        IN      MX 10   mail.asa.br.
+@       IN      NS      ns.rafael.asa.br.
+        IN      MX 10   mail.rafael.asa.br.
 
-rafael	IN      A       192.168.1.105
+ns	IN      A       192.168.1.105
 mail    IN      A       192.168.1.105
-www     IN      CNAME   rafael 
+www     IN      CNAME   ns 
 
