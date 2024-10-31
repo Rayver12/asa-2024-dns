@@ -13,7 +13,7 @@ EXPOSE 53/tcp
 EXPOSE 53/udp
 
 
-USER bind:bind
+#USER bind:bind
 
 COPY ./etc/* /etc/bind/
 
